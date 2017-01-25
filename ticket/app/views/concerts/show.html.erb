@@ -9,8 +9,8 @@
 空席：<% if s.empty == true %>あり<% else %>なし<% end %>
 <br>
 <%= form_for @receive do |f| %>
-<%= f.check_box :name %>
-<%= f.label :name, s.seat %>
+<%= f.radio_button :name, s.seat %>
+<%= f.hidden_field :concert_name, :value => @concert.name %>
   <%= f.submit '申し込む' %>
 <% end %>
 <% end %>

@@ -4,3 +4,13 @@
   <%= link_to concert.name, concert_path(concert.id) %>
   <br>
 <% end %>
+
+<h1>チケット購入一覧</h1>
+<% @receives.each do |receive| %>
+コンサート名：<%= receive.concert_name %><br>
+席種：<%= receive.name %><br>
+受注コード：<%= receive.id %><br>
+<%= link_to "キャンセル", receife_path(receive.id), method: :delete %>
+<br>
+<br>
+<% end %>
