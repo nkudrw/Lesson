@@ -1,2 +1,6 @@
-<h1>Concerts#index</h1>
-<p>Find me in app/views/concerts/index.html.erb</p>
+<h1>コンサート一覧</h1>
+
+<% @concerts.each do |concert| %>
+  <%= link_to concert.name, concert_path(concert.id) %>
+  <br>
+<% end %>

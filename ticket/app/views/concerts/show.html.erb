@@ -1,0 +1,19 @@
+<%= @concert.name %>コンサート<br>
+日時：<%= @concert.date %><br>
+会場：<%= @concert.place %><br>
+演奏者：<%= @concert.musician %><br>
+曲目：<%= @concert.song %><br>
+<% @concert.seats.each do |s| %>
+席種：<%= s.seat %>
+料金：<%= s.price %>円
+空席：<% if s.empty == true %>あり<% else %>なし<% end %>
+<br>
+<%= form_for @receive do |f| %>
+<%= f.check_box :name %>
+<%= f.label :name, s.seat %>
+  <%= f.submit '申し込む' %>
+<% end %>
+<% end %>
+
+
+<%= link_to 'ユーザー登録',users_path %>
